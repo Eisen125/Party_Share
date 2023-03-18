@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditPostFragment">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpeakableTextPresentCheck">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/gray_background"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/avatarImg_editPost"
+                        android:layout_width="match_parent"
+                        android:layout_height="238dp"
+                        android:layout_marginTop="28dp"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/noimage"
+                        tools:src="@tools:sample/backgrounds/scenic[0]" />
+
+                    <ImageButton
+                        android:id="@+id/galleryBtn_editPost"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|left"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/ic_baseline_image_search_24"
+                        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+
+                    <ImageButton
+                        android:id="@+id/imageBtn_editPost"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|right"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/ic_baseline_photo_camera_24" />
+                </FrameLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    app:startIconDrawable="@drawable/ic_baseline_local_drink_24">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editpost_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="post title" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    app:startIconDrawable="@drawable/ic_baseline_local_drink_24">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editpost_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="post description" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:clickable="false"
+                    app:startIconDrawable="@drawable/ic_baseline_local_drink_24">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/addresseditpost"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:enabled="false"
+                        android:hint="address"
+                        android:textColor="#3D021D" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <View
+                    android:id="@+id/seperation"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/roundstyle"
+                    android:backgroundTint="#404040" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/addLoction_editPost"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:text="edit location" />
+
+                    <Button
+                        android:id="@+id/save_editPost"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:text="save changes" />
+
+                    <Button
+                        android:id="@+id/cancelBtn_editPost"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:text="cancel" />
+                </LinearLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

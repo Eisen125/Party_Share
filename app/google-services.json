@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "844135078619",
+    "project_id": "partyshare-2d22b",
+    "storage_bucket": "partyshare-2d22b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:844135078619:android:688578d5dd272508e40afe",
+        "android_client_info": {
+          "package_name": "com.example.Party_Share"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "844135078619-dnd3d3utr5t7nvbgji8qkv9bc3ctb1kt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9_tR9_eRwuHcdmtstwJFkX_RL-OUxHq4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "844135078619-dnd3d3utr5t7nvbgji8qkv9bc3ctb1kt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

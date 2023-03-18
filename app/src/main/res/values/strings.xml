@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Party_Share</string>
+    <string name="date">Date:</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="User_email">Email</string>
+    <string name="password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="login">LogIn</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="User_label">Account Label</string>
+    <string name="signup">SignUp</string>
+    <string name="loader">loader</string>
+    <string name="go_to_current_location">Go to current location</string>
+    <string name="fragment_maps">Set Location</string>
+    <string name="label_user_profile">\@Label</string>
+    <string name="add_location">ADD location</string>
+    <string name="username">username</string>
+</resources>
