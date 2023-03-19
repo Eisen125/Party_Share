@@ -179,9 +179,7 @@ public class AddNewPostFragment extends Fragment {
         binding.cameraButton.setOnClickListener(view1 -> {
             cameraLauncher.launch(null);
         });
-        binding.galleryButton.setOnClickListener(view1 -> {
-            galleryLauncher.launch("media/*");
-        });
+
 
         return view;
     }

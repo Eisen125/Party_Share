@@ -140,7 +140,7 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:background="@drawable/gray_background"
+            android:background="@drawable/button_background"
             android:text="@string/signup"
             android:textColor="#ECECEC" />
 
@@ -151,7 +151,7 @@
             android:layout_marginTop="40dp"
             android:text="Already have an account?\npress here"
             android:textAlignment="center"
-            android:background="@drawable/gray_background"
+            android:background="@drawable/button_background"
             android:textColor="#E1D0D0"
             android:textSize="20sp"
             />
