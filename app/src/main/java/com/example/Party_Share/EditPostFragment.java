@@ -196,9 +196,9 @@ public class EditPostFragment extends Fragment {
         binding.imageBtnEditPost.setOnClickListener(view1 -> {
             cameraLauncher.launch(null);
         });
-        binding.galleryBtnEditPost.setOnClickListener(view1 -> {
-            galleryLauncher.launch("media/*");
-        });
+//        binding.galleryBtnEditPost.setOnClickListener(view1 -> {
+//            galleryLauncher.launch("media/*");
+//        });
     return view;
     }
 
