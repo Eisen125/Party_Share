@@ -12,6 +12,18 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/currentWeather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="96dp"
+            android:layout_marginTop="68dp"
+            android:text="Checking the weather"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
             android:id="@+id/profile_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

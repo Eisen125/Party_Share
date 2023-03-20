@@ -8,9 +8,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
@@ -19,6 +21,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.Party_Share.databinding.FragmentPostsListBinding;
 import com.example.Party_Share.model.Model;
 import com.example.Party_Share.model.Post;
+import com.example.Party_Share.model.WeatherDetails;
+import com.example.Party_Share.model.WeatherModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.squareup.picasso.Picasso;
 
@@ -56,7 +60,7 @@ public class PostsListFragment extends Fragment {
             }
         });
 
-
+        updateCurrentWeatherTextLabel(view);
         return view;
     }
 
@@ -99,5 +103,14 @@ public class PostsListFragment extends Fragment {
                 binding.progressBar.setVisibility(View.GONE);
             });
         }
+    }
+    private void updateCurrentWeatherTextLabel(View view) {
+        MainActivity activity = (MainActivity) getActivity();
+        TextView weatherLabel = view.findViewById(R.id.currentWeather);
+        LiveData<WeatherDetails> data = WeatherModel.instance.getCurrentWeatherForLocation(activity.locationLatitude, activity.locationLongitude);
+        data.observe(getViewLifecycleOwner(), weatherDetails -> {
+            String weatherText = "Weather in your area: " + weatherDetails.getTemperature() + " °C";
+            weatherLabel.setText(weatherText);
+        });
     }
 }
