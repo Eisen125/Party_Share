@@ -147,19 +147,19 @@ public class SignUpActivity extends AppCompatActivity {
                 if (s.length() != 0 && !String.valueOf(s.charAt(s.length() - 1)).matches(keyRegex) && before != 1) {
                     return;
                 }
-                if (s.length() != 0 && !s.toString().startsWith("@")) {
-                    if (s.toString().split("@").length > 1) {
-                        int atIndex = s.toString().lastIndexOf("@");
+                if (s.length() != 0 && !s.toString().startsWith("-")) {
+                    if (s.toString().split("-").length > 1) {
+                        int atIndex = s.toString().lastIndexOf("-");
                         String PrevS = String.valueOf(s.subSequence(atIndex, s.length()));
                         editTextAccLabel.setText(PrevS);
                         editTextAccLabel.setSelection(1);
                     } else {
-                        s = "@" + s;
+                        s = "-" + s;
                         editTextAccLabel.setText(s);
                         editTextAccLabel.setSelection(s.length());
                     }
                 }
-                if (s.toString().equals("@")) {
+                if (s.toString().equals("-")) {
                     s = "";
                     editTextAccLabel.setText(s);
                     editTextAccLabel.setSelection(s.length());
