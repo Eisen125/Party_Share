@@ -44,7 +44,6 @@ public class AddNewPostFragment extends Fragment {
     String locationName;
     Double x, y;
     ActivityResultLauncher<Void> cameraLauncher;
-    ActivityResultLauncher<String> galleryLauncher;
     SharedPreferences sp;
     Boolean isAvatarSelected = false;
     private BottomNavigationView bottomNavigationView;
@@ -97,15 +96,6 @@ public class AddNewPostFragment extends Fragment {
                     }
                     bundle.putParcelable("imgBitmap",result);
                     viewModel.setSavedInstanceStateData(bundle);
-                    isAvatarSelected = true;
-                }
-            }
-        });
-        galleryLauncher = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
-            @Override
-            public void onActivityResult(Uri result) {
-                if (result != null) {
-                    binding.avatarImg.setImageURI(result);
                     isAvatarSelected = true;
                 }
             }
