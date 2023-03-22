@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,10 +17,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.Party_Share.databinding.FragmentUserProfileBinding;
 import com.example.Party_Share.model.Model;
+import com.example.Party_Share.model.WeatherDetails;
+import com.example.Party_Share.model.WeatherModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class userProfile extends Fragment {
@@ -62,6 +66,7 @@ public class userProfile extends Fragment {
             startActivity(i,bundle);
             getActivity().finish();
         }));
+        updateCurrentWeatherTextLabel(view);
         return view;
     }
 
@@ -99,5 +104,14 @@ public class userProfile extends Fragment {
         super.onStop();
         mViewModel.setActiveState(false);
         ((AppCompatActivity)getActivity()).getSupportActionBar().setShowHideAnimationEnabled(true);
+    }
+    private void updateCurrentWeatherTextLabel(View view) {
+        MainActivity activity = (MainActivity) getActivity();
+        TextView weatherLabel = view.findViewById(R.id.currentWeather);
+        LiveData<WeatherDetails> data = WeatherModel.instance.getCurrentWeatherForLocation(activity.locationLatitude, activity.locationLongitude);
+        data.observe(getViewLifecycleOwner(), weatherDetails -> {
+            String weatherText = "Weather in your area: " + weatherDetails.getTemperature() + " °C";
+            weatherLabel.setText(weatherText);
+        });
     }
 }

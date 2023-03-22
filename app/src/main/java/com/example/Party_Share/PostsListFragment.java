@@ -60,7 +60,7 @@ public class PostsListFragment extends Fragment {
             }
         });
 
-        updateCurrentWeatherTextLabel(view);
+
         return view;
     }
 
@@ -104,13 +104,5 @@ public class PostsListFragment extends Fragment {
             });
         }
     }
-    private void updateCurrentWeatherTextLabel(View view) {
-        MainActivity activity = (MainActivity) getActivity();
-        TextView weatherLabel = view.findViewById(R.id.currentWeather);
-        LiveData<WeatherDetails> data = WeatherModel.instance.getCurrentWeatherForLocation(activity.locationLatitude, activity.locationLongitude);
-        data.observe(getViewLifecycleOwner(), weatherDetails -> {
-            String weatherText = "Weather in your area: " + weatherDetails.getTemperature() + " °C";
-            weatherLabel.setText(weatherText);
-        });
-    }
+
 }
