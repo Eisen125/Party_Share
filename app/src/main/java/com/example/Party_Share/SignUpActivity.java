@@ -26,7 +26,7 @@ public class SignUpActivity extends AppCompatActivity {
     TextInputEditText editTextEmail, editTextPassword, editTextAccLabel;
     TextView errorTV;
     TextView toLogIn;
-    ImageView loaderIV;
+    ImageView spinner;
     Button signUpBtn;
     Intent i;
     SharedPreferences sp;
@@ -45,8 +45,8 @@ public class SignUpActivity extends AppCompatActivity {
         LabelChecker();
 
         errorTV = findViewById(R.id.signup_error);
-        loaderIV = findViewById(R.id.loading_spinner);
-        loaderIV.setVisibility(View.GONE);
+        spinner = findViewById(R.id.loading_spinner);
+        spinner.setVisibility(View.GONE);
 
         signUpBtn = findViewById(R.id.signUpBtn);
         SignUpListener();
@@ -70,14 +70,14 @@ public class SignUpActivity extends AppCompatActivity {
                 } else {
                     signUpBtn.setClickable(false);
                     // Load in UI Thread
-                    loaderIV.post(() -> {
-                        loaderIV.setVisibility(View.VISIBLE);
+                    spinner.post(() -> {
+                        spinner.setVisibility(View.VISIBLE);
                         RotateAnimation animation = new RotateAnimation(360.0f, 0.0f,
                                 Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
                         animation.setInterpolator(new LinearInterpolator());
                         animation.setDuration(1000);
                         animation.setRepeatCount(Animation.INFINITE);
-                        loaderIV.startAnimation(animation);
+                        spinner.startAnimation(animation);
                     });
                     Model.instance().signUp(email, label, password, (result) -> {
                         if (result.first) {
@@ -101,9 +101,9 @@ public class SignUpActivity extends AppCompatActivity {
 
 
                         }
-                        loaderIV.post(() -> {
-                            loaderIV.clearAnimation();
-                            loaderIV.setVisibility(View.GONE);
+                        spinner.post(() -> {
+                            spinner.clearAnimation();
+                            spinner.setVisibility(View.GONE);
                         });
                         signUpBtn.setClickable(true);
                     });

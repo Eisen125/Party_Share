@@ -29,7 +29,7 @@ public class LogInActivity extends AppCompatActivity {
     TextView toSignUp;
     Button LogIn_btn;
     Intent intent;
-    ImageView loaderIV;
+    ImageView spinner;
     TextView error;
     FirebaseUser user;
     String label;
@@ -47,8 +47,8 @@ public class LogInActivity extends AppCompatActivity {
         toSignUp = findViewById(R.id.login_to_signup_tv);
         user = Model.instance().getAuth().getCurrentUser();
         sp = getSharedPreferences("user", MODE_PRIVATE);
-        loaderIV=findViewById(R.id.loading_spinner);
-        loaderIV.setVisibility(View.GONE);
+        spinner =findViewById(R.id.loading_spinner);
+        spinner.setVisibility(View.GONE);
         error =findViewById(R.id.login_error);
         if (user != null) {
             Intent intent = new Intent(this, MainActivity.class);
@@ -79,14 +79,14 @@ public class LogInActivity extends AppCompatActivity {
                     Toast.makeText(getBaseContext(), "the password or email you insert is not valid", Toast.LENGTH_LONG).show();
                 } else {
                     LogIn_btn.setClickable(false);
-                    loaderIV.post(() -> {
-                        loaderIV.setVisibility(View.VISIBLE);
+                    spinner.post(() -> {
+                        spinner.setVisibility(View.VISIBLE);
                         RotateAnimation animation = new RotateAnimation(360.0f, 0.0f,
                                 Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
                         animation.setInterpolator(new LinearInterpolator());
                         animation.setDuration(1000);
                         animation.setRepeatCount(Animation.INFINITE);
-                        loaderIV.startAnimation(animation);
+                        spinner.startAnimation(animation);
                     });
                     Model.instance().login(email, password, result -> {
 
@@ -124,9 +124,9 @@ public class LogInActivity extends AppCompatActivity {
                         else {
                             error.setText(result.second);
                         }
-                        loaderIV.post(() -> {
-                            loaderIV.clearAnimation();
-                            loaderIV.setVisibility(View.GONE);
+                        spinner.post(() -> {
+                            spinner.clearAnimation();
+                            spinner.setVisibility(View.GONE);
                         });
                         LogIn_btn.setClickable(true);
                     });
